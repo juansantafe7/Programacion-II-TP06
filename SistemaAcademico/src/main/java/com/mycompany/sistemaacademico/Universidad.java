@@ -45,7 +45,6 @@ public class Universidad {
         return null;
     }
 
-    /** Usa setProfesor del curso (mantiene invariante en ambos lados). */
     public boolean asignarProfesorACurso(String codigoCurso, String idProfesor) {
         Curso c = buscarCursoPorCodigo(codigoCurso);
         Profesor p = buscarProfesorPorId(idProfesor);
@@ -73,7 +72,6 @@ public class Universidad {
         return cursos.remove(c);
     }
 
-    /** Eliminar profesor: deja null en todos los cursos que dictaba. */
     public boolean eliminarProfesor(String id) {
         Profesor p = buscarProfesorPorId(id);
         if (p == null) return false;
@@ -84,7 +82,6 @@ public class Universidad {
         return profesores.remove(p);
     }
 
-    /** Reporte: cantidad de cursos por profesor. */
     public void reporteCantidadCursosPorProfesor() {
         if (profesores.isEmpty()) {
             System.out.println("No hay profesores para reportar.");
