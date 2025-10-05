@@ -27,7 +27,6 @@ public class Profesor {
     public String getEspecialidad() { return especialidad; }
     public List<Curso> getCursos() { return new ArrayList<>(cursos); }
 
-    /** API público: agrega el curso y sincroniza el lado del curso */
     public void agregarCurso(Curso c) {
         Objects.requireNonNull(c, "curso null");
         if (!cursos.contains(c)) {
@@ -39,7 +38,6 @@ public class Profesor {
         }
     }
 
-    /** API público: quita el curso y sincroniza el lado del curso */
     public void eliminarCurso(Curso c) {
         if (c == null) return;
         if (cursos.remove(c)) {
@@ -49,7 +47,6 @@ public class Profesor {
         }
     }
 
-    /** Métodos internos (sincronización de listas SIN tocar el lado opuesto) */
     void agregarCursoInterno(Curso c) {
         if (!cursos.contains(c)) cursos.add(c);
     }
