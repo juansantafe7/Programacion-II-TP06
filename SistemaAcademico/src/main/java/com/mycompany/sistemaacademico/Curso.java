@@ -9,7 +9,7 @@ import java.util.Objects;
 public class Curso {
     private String codigo;
     private String nombre;
-    private Profesor profesor; // puede ser null
+    private Profesor profesor;
 
     public Curso(String codigo, String nombre) {
         if (codigo == null || codigo.isBlank()) throw new IllegalArgumentException("codigo vacío");
@@ -23,14 +23,12 @@ public class Curso {
     public Profesor getProfesor() { return profesor; }
 
     public void setProfesor(Profesor p) {
-        if (this.profesor == p) return; // nada que hacer
+        if (this.profesor == p) return;
 
-        // 1) Quitarme del profesor previo (si había)
         if (this.profesor != null) {
             this.profesor.eliminarCursoInterno(this);
         }
 
-        // 2) Asignar el nuevo
         this.profesor = p;
 
         if (p != null) {
